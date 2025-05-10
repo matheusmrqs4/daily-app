@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import * as dailyService from '../../services/Entity/dailyService';
 
 const handleError = (res: Response, message: string, statusCode: number) => {
-  res.status(statusCode).json({ error: message });
+  res.status(statusCode).json({ message });
 };
 
 export const createDaily = async (req: Request, res: Response) => {
@@ -41,16 +41,19 @@ export const getAllDailies = async (req: Request, res: Response) => {
 export const getDailyById = async (req: Request, res: Response) => {
     try {
         if (!req.userId) {
-        return handleError(res, "Unauthorized", 401);
+            return handleError(res, "Unauthorized", 401);
         }
 
         const daily = await dailyService.getDailyById(req.params.id, req.userId);
-        if (!daily) return handleError(res, "Daily not found", 404);
+        if (!daily) {
+            return handleError(res, "Daily not found", 404);
+        }
         res.json(daily);
-  } catch (err) {
+    } catch (err) {
         handleError(res, "Error fetching daily", 500);
-  }
+    }
 };
+
 
 export const updateDaily = async (req: Request, res: Response) => {
     try {
@@ -74,8 +77,9 @@ export const deleteDaily = async (req: Request, res: Response) => {
 
         const deleted = await dailyService.deleteDaily(req.params.id, req.userId);
         if (!deleted) return handleError(res, "Daily not found", 404);
-        res.json({ message: "Daily deleted" });
-  } catch (err) {
-        handleError(res, "Error updating daily", 500);
+
+        res.json({ message: 'Daily deleted', data: deleted });
+    } catch (err) {
+        handleError(res, "Error deleting daily", 500);
     }
 };
