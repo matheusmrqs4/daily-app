@@ -34,7 +34,7 @@ yarn-error.*
 .env
 .env.test
 
-src/config/mongoTest.ts
+src/config/mongoTest
 
 # typescript
 *.tsbuildinfo
