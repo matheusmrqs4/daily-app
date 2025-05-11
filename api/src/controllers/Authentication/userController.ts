@@ -52,6 +52,10 @@ export const loginUser = async (req: Request, res: Response) => {
   }
 };
 
+export const logoutUser = async (req: Request, res: Response) => {
+  res.status(200).json({ message: "Logout successful" });
+};
+
 export const getUserProfile = async (req: Request, res: Response) => {
   const userId = req.userId;
 
