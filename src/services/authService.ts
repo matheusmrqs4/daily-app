@@ -31,7 +31,7 @@ export const loginUser = async (email: string, password: string) => {
 
 export const logoutUser = async () => {
   try {
-    await api.post('/users/logout'); //criar na api
+    await api.post('/users/logout');
   } catch (error: unknown) {
     const err = error as AxiosError<{ error: string }>;
     const errorMessage = err.response?.data?.error || 'Error during logout';
