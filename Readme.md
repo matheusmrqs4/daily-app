@@ -1,6 +1,6 @@
 # Daily App (Frontend)
 
-Este é o aplicativo **mobile** construído com **React Native** que permite criar, editar, listar e excluir registros diários (Dailies). Ele se comunica com uma API backend para persistência dos dados.
+Aplicativo **mobile** construído com **React Native** que permite criar, editar, listar e excluir registros diários (Dailies). Ele se comunica com uma API backend para persistência dos dados.
 
 ## Tecnologias Usadas no Frontend
 - **React Native**
