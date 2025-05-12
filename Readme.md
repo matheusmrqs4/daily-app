@@ -17,4 +17,3 @@ Aplicativo **mobile** construído com **React Native** que permite criar, editar
 
 - **Rode a aplicação:**
 `npx expo start`
-`http://localhost:8081`
